@@ -5,7 +5,6 @@ metadata:
   namespace: default
 
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -18,14 +17,13 @@ spec:
   template:
     metadata:
       labels:
-        app: *labels
+        app: hello-display
     spec:
       containers:
-      - name: event-display
-        image: gcr.io/knative-releases/knative.dev/eventing-contrib/cmd/event_display
+        - name: event-display
+          image: gcr.io/knative-releases/knative.dev/eventing-contrib/cmd/event_display
 
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -34,17 +32,16 @@ spec:
   selector:
     app: hello-display
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 8080
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
 
 ---
-
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
 metadata:
   name: hello-display
-spec: 
+spec:
   broker: example-broker
   filter:
     attributes:
@@ -56,3 +53,4 @@ spec:
       name: hello-display
 
 ---
+
