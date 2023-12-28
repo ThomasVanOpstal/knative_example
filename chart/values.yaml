@@ -1,0 +1,7 @@
+ingress:
+  enabled: true
+  hosts:
+    - host: openfaas.81.co.ucll.cloud
+      paths:
+        - path: "/"
+          pathType: Prefix
