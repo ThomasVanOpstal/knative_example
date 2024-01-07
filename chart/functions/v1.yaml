@@ -1,11 +1,10 @@
-version: 1.0
-provider:
-  name: openfaas
-  gateway: https://openfaas.81.co.ucll.cloud
-functions:
-  countv3:
-    lang: java11-vert-x
-    environment:
-      FRONTAPP: true
-    handler: ./countv3
-    image: thomasvanopstal/countv3:latest
+apiVersion: openfaas.com/v1
+kind: Function
+metadata:
+  name: countv3
+  namespace: openfaas-fn
+spec:
+  name: countv3
+  image: thomasvanopstal/countv3:latest
+  environment:
+    FRONTAPP: "true"

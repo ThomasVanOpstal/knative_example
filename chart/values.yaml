@@ -11,3 +11,6 @@ ingress:
     - secretName: openfaas-tls
       hosts:
         - "openfaas.81.co.ucll.cloud"
+operator:
+  image: ghcr.io/openfaasltd/faas-netes:0.5.8
+  create: true
