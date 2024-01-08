@@ -11,3 +11,4 @@ ingress:
     - secretName: openfaas-tls
       hosts:
         - "openfaas.81.co.ucll.cloud"
+generateBasicAuth: false
